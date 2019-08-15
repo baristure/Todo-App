@@ -18,9 +18,8 @@ function eventListeners() {
   filter.addEventListener("keyup", filterTodos);
   clearButton.addEventListener("click", clearAllTodos);
 }
-//
-//
-//
+
+
 function clearAllTodos(e) {
   if (confirm("Do you want to delete all of them?")) {
     //Clear all todos from UI
@@ -31,9 +30,7 @@ function clearAllTodos(e) {
     localStorage.removeItem("todos");
   }
 }
-//
-//
-//
+
 function filterTodos(e) {
   const filterValue = e.target.value.toLowerCase();
   const listItems = document.querySelectorAll(".list-group-item");
@@ -48,9 +45,7 @@ function filterTodos(e) {
     }
   });
 }
-//
-//
-//
+
 function deleteTodo(e) {
   // Find clicked targets class, id etc.
   // console.log(e.target);
@@ -61,9 +56,7 @@ function deleteTodo(e) {
     showAlert("success", "Todo deleted successfully...");
   }
 }
-//
-//
-//
+
 function deleteTodoFromStorage(deletetodo) {
   let todos = getTodosFromStorage();
   todos.forEach(function(todo, index) {
@@ -73,9 +66,7 @@ function deleteTodoFromStorage(deletetodo) {
   });
   localStorage.setItem("todos", JSON.stringify(todos));
 }
-//
-//
-//
+
 function loadAllTodosToUI() {
   let todos = getTodosFromStorage();
 
@@ -83,9 +74,7 @@ function loadAllTodosToUI() {
     addTodoToUI(todo);
   });
 }
-//
-//
-//
+
 function addTodo(e) {
   const newTodo = todoInput.value.trim();
   if (newTodo === "") {
@@ -97,9 +86,7 @@ function addTodo(e) {
   }
   e.preventDefault();
 }
-//
-//
-//
+
 function getTodosFromStorage() {
   //Call todos from the storage
   let todos;
@@ -111,17 +98,14 @@ function getTodosFromStorage() {
   }
   return todos;
 }
-//
-//
-//
+
+
 function addTodoToStorage(newTodo) {
   let todos = getTodosFromStorage();
   todos.push(newTodo);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
-//
-//
-//
+
 function showAlert(type, message) {
   const alert = document.createElement("div");
   alert.className = `alert alert-${type}`;
@@ -132,9 +116,7 @@ function showAlert(type, message) {
     alert.remove();
   }, 1000);
 }
-//
-//
-//
+
 function addTodoToUI(newTodo) {
   // **Add string value to UI by list item**
   //Create a list item
